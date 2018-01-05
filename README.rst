@@ -35,7 +35,7 @@ Using
 -----
 
 MRO tools exposes all tools via a single group command.
-All available command can be seen by executing ``mro-tools`` command::
+All available commands can be seen by executing ``mro-tools`` command::
 
     ❯❯❯ mro-tools
     Usage: mro-tools [OPTIONS] COMMAND [ARGS]...
