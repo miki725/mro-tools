@@ -62,7 +62,7 @@ Each sub-command has more documentation::
     ❯❯❯ python -m mro_tools
 
 Examples
--------
+--------
 
 ::
 
