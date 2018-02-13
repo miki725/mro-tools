@@ -71,6 +71,14 @@ def cli():
     """
 )
 @click.option(
+    '--django-configurations',
+    is_flag=True,
+    default=False,
+    help="""
+    Initialize django before importing modules by using django-configurations.
+    """
+)
+@click.option(
     '--path-style',
     default='dot',
     type=click.Choice(['dot', 'pycharm']),
@@ -80,7 +88,7 @@ def cli():
     * pycharm - PyCharm notation (e.g. "module.path.Class#method")
     """
 )
-def method(path, pre, django, path_style):
+def method(path, pre, django, django_configurations, path_style):
     """
     Get all method definitions within all classes within MRO
     """
@@ -89,6 +97,10 @@ def method(path, pre, django, path_style):
     if django:
         import django
         django.setup()
+
+    if django_configurations:
+        import configurations
+        configurations.setup()
 
     if pre:
         exec(pre)
