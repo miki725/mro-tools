@@ -4,6 +4,9 @@ import inspect
 from importlib import import_module
 
 import click
+from pygments import highlight
+from pygments.formatters import TerminalFormatter
+from pygments.lexers import PythonLexer
 
 
 click.disable_unicode_literals_warning = True
@@ -42,7 +45,7 @@ def print_method(klass, method):
     print('-' * len(header))
     print(header)
     print('-' * len(header))
-    print('\n'.join(lines))
+    print(highlight('\n'.join(lines), PythonLexer(), TerminalFormatter()))
 
 
 @click.group()
