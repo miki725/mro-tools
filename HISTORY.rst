@@ -3,7 +3,7 @@
 History
 -------
 
-0.1.3 (2018-02-13)
+0.1.3 (2018-09-13)
 ~~~~~~~~~~~~~~~~~~
 
 * Added pygments code highlight to ``method``
