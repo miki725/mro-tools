@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
 from __future__ import absolute_import, print_function, unicode_literals
 
+import sys
+
 import click
 
-from . import __version__
+from . import __version__, __description__
 
 
 @click.group()
@@ -12,11 +14,20 @@ def cli():
 
 
 @cli.command()
-def version():
+@click.option("-v", is_flag=True, default=False, help="Show additional information")
+def version(v):
     """
-    Print version of mro-tools
+    Show version of mro-tools
     """
-    print(__version__)
+    if v:
+        print("mro tools")
+        print("---------")
+        print(__description__)
+        print()
+        print("version:", __version__)
+        print("python:", sys.executable)
+    else:
+        print(__version__)
 
 
 if __name__ == "__main__":

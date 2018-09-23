@@ -22,11 +22,11 @@ def cli():
     "--all",
     is_flag=True,
     default=False,
-    help="Show all methods within class and its mro",
+    help="Show complete class definition for all classes in MRO",
 )
 def klass(path, pre, django, django_configurations, path_style, all):
     """
-    Get all method definitions within all classes within MRO
+    Show MRO for class
     """
     module, klass = PathParser(path_style).parse(path, "klass")
 

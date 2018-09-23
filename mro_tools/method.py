@@ -20,7 +20,7 @@ def cli():
 @path_args
 def method(path, pre, django, django_configurations, path_style):
     """
-    Get all method definitions within all classes within MRO
+    Show single method for all classes in MRO
     """
     module, klass, method = PathParser(path_style).parse(path, "method")
 
