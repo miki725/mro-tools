@@ -6,7 +6,10 @@ History
 0.3.0 (2019-02-08)
 ~~~~~~~~~~~~~~~~~~
 
-* Added ``--no-color`` option
+* Added ``--no-color`` option.
+  This allows open in other editors for syntax highlight:
+  ``mro-tools klass ... | vim -R - +'set syntax=python'``
+* Added file to class header in ``klass`` command
 
 0.2.0 (2018-09-22)
 ~~~~~~~~~~~~~~~~~~

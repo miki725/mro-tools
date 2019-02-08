@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 from __future__ import absolute_import, print_function, unicode_literals
 import inspect
+import os
+import sys
 
 from pygments import highlight as pygmentize
 from pygments.formatters import TerminalFormatter
@@ -23,8 +25,14 @@ def render_klass_mro(klass, indent=0):
 
 def render_klass_header(klass, indent=0):
     header = "{}.{}".format(klass.__module__, klass.__name__)
+    path = sys.modules[klass.__module__].__file__
+    relpath = os.path.relpath(path)
+    if not relpath.startswith(os.pardir):
+        path = relpath
 
-    return add_indent("\n".join(["=" * len(header), header, "=" * len(header)]), indent)
+    length = max(len(header), len(path))
+
+    return add_indent("\n".join(["=" * length, header, path, "=" * length]), indent)
 
 
 def render_method_header(klass, method, indent=0):
