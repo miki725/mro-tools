@@ -24,7 +24,7 @@ def cli():
     default=False,
     help="Show complete class definition for all classes in MRO",
 )
-def klass(path, pre, django, django_configurations, path_style, all):
+def klass(path, pre, django, django_configurations, path_style, no_color, all):
     """
     Show MRO for class
     """
@@ -40,7 +40,7 @@ def klass(path, pre, django, django_configurations, path_style, all):
     if all:
         for c in klass.mro():
             try:
-                rendered = render_klass(c, 4)
+                rendered = render_klass(c, 4, no_color)
             except TypeError:
                 pass
             else:

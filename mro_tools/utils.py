@@ -34,6 +34,12 @@ def path_args(f):
                 '* pycharm - PyCharm notation (e.g. "module.path.Class#method")'
             ),
         ),
+        click.option(
+            "--no-color",
+            is_flag=True,
+            default=True,
+            help="Dont color code output",
+        ),
     ]
 
     for w in wrappers[::-1]:

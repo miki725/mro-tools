@@ -18,7 +18,7 @@ def cli():
 
 @cli.command()
 @path_args
-def method(path, pre, django, django_configurations, path_style):
+def method(path, pre, django, django_configurations, no_color, path_style):
     """
     Show single method for all classes in MRO
     """
@@ -37,7 +37,7 @@ def method(path, pre, django, django_configurations, path_style):
             continue
 
         try:
-            rendered = render_method(c, m)
+            rendered = render_method(c, m, no_color)
         except TypeError:
             # handles builtins
             continue
